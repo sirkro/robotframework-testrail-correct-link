@@ -48,7 +48,7 @@ class TestRailAPIClient(object):
             Request result in json format.
         """
         url = self._url + uri
-        response = post(url, json=data, auth=(self._user, self._password), verify=False)
+        response = post(url, json=data, auth=(self._user, self._password), verify=True)
         response.raise_for_status()
         return response.json()
 
@@ -65,7 +65,7 @@ class TestRailAPIClient(object):
             Request result in json format.
         """
         url = self._url + uri
-        response = get(url, headers=headers, params=params, auth=(self._user, self._password), verify=False)
+        response = get(url, headers=headers, params=params, auth=(self._user, self._password), verify=True)
         response.raise_for_status()
         return response.json()
 
